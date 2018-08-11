@@ -12,6 +12,10 @@ export default class Fans {
     }
   }
 
+  getFanByName(name) {
+    return this.fans.find((fan) => fan.name === name);
+  }
+
   saveFan(fan) {
     const foundFanIndex = this.fans.findIndex((existingFan) => existingFan.name === fan.name);
     if (foundFanIndex > -1) {
