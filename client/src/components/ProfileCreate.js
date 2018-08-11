@@ -10,26 +10,78 @@ export default class ProfileCreate extends Component {
     this.state = {
       name: "",
       city: "",
-      films: [],
+      films: ["", "", ""],
       step: 1
     }
   }
 
+  handleTextChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    this.setState({ [name]: value });
+  }
+
+  handleFilmChange = (e) => {
+    const splitName = e.target.name.split('-');
+    const filmNumber = splitName[1];
+    const value = e.target.value;
+
+    const changedFilms = [...this.state.films];
+    changedFilms[filmNumber] = value;
+
+    this.setState({ films: changedFilms })
+  }
+
   renderDemographicsForm() {
     return (
-      <p>Demographics Form</p>
+      <form>
+        <h2>Tell us about yourself</h2>
+
+        <label for="name">Name:
+          <input type="text" name="name" value={this.state.name} onChange={this.handleTextChange} />
+        </label>
+
+        <label for="city">City:
+          <input type="text" name="city" value={this.state.city} onChange={this.handleTextChange} />
+        </label>
+      </form>
     )
   }
 
   renderTopFilmsForm() {
     return (
-      <p>Top Films Form</p>
+      <form>
+        <h2>What are your favorite films?</h2>
+
+        { this.state.films.map((film, index) => (
+
+          <label key={index} for={film+"-"+index}>Film #{index + 1}:
+            
+            <input type="text" name={film+"-"+index} value={film} onChange={this.handleFilmChange} />
+          
+          </label>
+       
+        ))}
+
+      </form>
     )
   }
 
   renderConfirmationForm() {
     return (
-      <p>Confirmation</p>
+      <div>
+        <h2>Confirmation</h2>
+        <ul>
+          <li>Name: {this.state.name}</li>
+          <li>City: {this.state.city}</li>
+          <li>Favorite Films: 
+            <ul>
+              { this.state.films.map((film) => <li key={film}>{film}</li> ) }
+            </ul>
+          </li>
+        </ul>
+      </div>
     )
   }
 
@@ -54,6 +106,8 @@ export default class ProfileCreate extends Component {
   render() {
     return (
       <div className="profile-create">
+        <h1>Create your profile</h1>
+
         { this.state.step === 1 && this.renderDemographicsForm()}
 
         { this.state.step === 2 && this.renderTopFilmsForm()}
