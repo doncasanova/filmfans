@@ -28,6 +28,45 @@ object could be modified to make HTTP requests to a real backend. The biggest
 thing that would change in that case is you'd add some .then()-style promise
 code when using the API in the react components.
 
+## Building it
+
+Here's a rough outline of the steps involved in building this demo code.
+
+* Code organization
+  * yarn add react-router-dom
+  * Create a components directory
+  * create a dummy component
+  * router in App.js
+    * /profile/create
+    * /profile/:id
+* Write the Profile Create component
+  * think through state (constructor)
+    * name, city, films
+    * steps (demo, films, confirm)
+  * skeleton workflow
+    * Dummy methods for each step
+    * prev/next/create buttons
+    * handle methods for forwards/back
+    * handle method for confirm
+  * actual forms
+    * static form for demo
+    * dynamic form for films
+    * onChange handlers
+    * little bit of magic for films
+    * confirmation form
+* Homepage that lists profiles
+  * create first draft render
+  * state: profiles
+  * componentDidMount for data fetch
+  * Links to other pages
+* Profile page
+  * draft Render func for Profile
+  * state: profile, error
+  * componetnDidMount for data fetch
+  * get param from props.match.params
+  * error message if it fails
+
+
 ## The create-react-express boilerplate
 
 _The following content comes from the README.md from create-react-express, and is generic_
