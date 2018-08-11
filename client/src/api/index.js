@@ -1,8 +1,4 @@
 export default class Fans {
-  constructor() {
-    this.fans = this.getFans();
-  }
-
   getFans() {
     try {
       const storedFans = JSON.parse(localStorage.getItem('fans'));
@@ -13,17 +9,18 @@ export default class Fans {
   }
 
   getFanByName(name) {
-    return this.fans.find((fan) => fan.name === name);
+    return this.getFans().find((fan) => fan.name === name);
   }
 
   saveFan(fan) {
-    const foundFanIndex = this.fans.findIndex((existingFan) => existingFan.name === fan.name);
+    const fans = this.getFans();
+    const foundFanIndex = fans.findIndex((existingFan) => existingFan.name === fan.name);
     if (foundFanIndex > -1) {
-      this.fans[foundFanIndex] = fan;
+      fans[foundFanIndex] = fan;
     } else {
-      this.fans.push(fan);
+      fans.push(fan);
     }
 
-    localStorage.setItem('fans', JSON.stringify(this.fans));
+    localStorage.setItem('fans', JSON.stringify(fans));
   }
 }
