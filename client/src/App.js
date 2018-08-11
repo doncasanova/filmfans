@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProfileCreate from "./components/ProfileCreate";
 import Home from "./components/Home";
-import Dummy from "./components/Dummy";
+import ProfilePage from "./components/ProfilePage";
 import "./App.css";
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/profile/create" component={ProfileCreate} />
-              <Route exact path="/profile/:id" component={Dummy} />
+              <Route exact path="/profile/:id" component={ProfilePage} />
             </Switch>
           </Router>
         </div>
