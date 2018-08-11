@@ -1,6 +1,36 @@
-# Create React Express App
+# React Review 2
 
-## About This Boilerplate
+## The App
+
+We'll build a tiny app called FILM LOVERS! The core is a multi-step wizard for
+building up your profile. There is also a homepage listing profiles and a profile
+page that displays a profile's details.
+
+* Route 1: /profile/create
+  * Step 1: Name and city
+  * Step 2: Top Three films
+  * Step 3: Confirm their details
+* Route 2: /profile/:id
+* Route 3: /
+
+We're starting with the create-react-express boilerplate from the Week 20
+Supplemental folder. However, this activity is focused on the React application
+(front end) so all the new code is in the `./client/` folder. We're not touching
+`server.js` or any other express-related files. The full boilerplate is just
+here as reference/context.
+
+We're also not doing any styles/design work.
+
+*NOTE*
+
+This is going to use a FAKE API via `./client/src/api/index.js` - but that
+object could be modified to make HTTP requests to a real backend. The biggest
+thing that would change in that case is you'd add some .then()-style promise
+code when using the API in the react components.
+
+## The create-react-express boilerplate
+
+_The following content comes from the README.md from create-react-express, and is generic_
 
 This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
