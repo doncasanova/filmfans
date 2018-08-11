@@ -38,11 +38,11 @@ export default class ProfileCreate extends Component {
       <form>
         <h2>Tell us about yourself</h2>
 
-        <label for="name">Name:
+        <label htmlFor="name">Name:
           <input type="text" name="name" value={this.state.name} onChange={this.handleTextChange} />
         </label>
 
-        <label for="city">City:
+        <label htmlFor="city">City:
           <input type="text" name="city" value={this.state.city} onChange={this.handleTextChange} />
         </label>
       </form>
@@ -56,7 +56,7 @@ export default class ProfileCreate extends Component {
 
         { this.state.films.map((film, index) => (
 
-          <label key={index} for={film+"-"+index}>Film #{index + 1}:
+          <label key={index} htmlFor={film+"-"+index}>Film #{index + 1}:
             
             <input type="text" name={film+"-"+index} value={film} onChange={this.handleFilmChange} />
           

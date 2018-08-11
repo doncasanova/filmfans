@@ -29,7 +29,7 @@ export default class Home extends Component {
         <ul>
           { this.state.profiles.map((profile) => {
             return (profile.name) ? 
-              <li>
+              <li key={profile.name}>
                 <Link to={"/profile/" + profile.name}>
                   {profile.name}
                 </Link>
